@@ -1,0 +1,25 @@
+<div class="col-md-6 offset-md-3">
+    <div class="card">
+        <div class="card-header">
+            <h1>tareas</h1>
+        </div>
+        <div class="card-body">
+            {{#if contacts}}
+                <h1>contacts</h1>
+            {{else}}
+            <p>no contacts yet</p>
+            {{/if}}
+        </div>
+        <div class="card-footer">
+            <form action="/new-contact" method="POST">
+                <div class="form-group">
+                    <input type="text" name="firstname" placeholder="FirstName" class="form-control" autofocus>
+                    <input type="text" name="lastname" placeholder="LastName" class="form-control">
+                    <input type="text" name="email" placeholder="Email" class="form-control">
+                    <input type="text" name="phone" placeholder="Phone" class="form-control">
+                    <button class="btn btn-primary btn-block">enviar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
