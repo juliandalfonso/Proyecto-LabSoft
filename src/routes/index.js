@@ -27,6 +27,14 @@ router.get('/libros', (req,res) =>
     
 });
 
+router.get('/delete-contact/:id', (req,res) =>
+{
+    db.ref('contacts/' + req.params.id).remove();
+    res.redirect('/libros');
+});
+
+
+
 router.post('/new-contact', (req,res)=>
 {
     const newContact=
@@ -37,7 +45,7 @@ router.post('/new-contact', (req,res)=>
         phone: req.body.phone,
     };
     db.ref('contacts').push(newContact);
-    res.send('received');
+    res.redirect('libros');
 });
 
 module.exports = router;

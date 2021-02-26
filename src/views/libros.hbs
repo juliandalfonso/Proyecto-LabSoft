@@ -5,7 +5,19 @@
         </div>
         <div class="card-body">
             {{#if contacts}}
-                <h1>contacts</h1>
+               <ul class="list-group">
+                    {{#each contacts}}
+                    <li class="list-group-item">
+                        {{@key}}
+                        {{firstname}}
+                        {{lastname}}
+                        {{email}}
+                        {{phone}}
+                        <a href="/delete-contact/{{@key}}" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
+                        <a href="" class="btn btn-info"><i class="fas fa-edit"></i></a>
+                    </li>
+                    {{/each}}
+               </ul>
             {{else}}
             <p>no contacts yet</p>
             {{/if}}
@@ -13,10 +25,10 @@
         <div class="card-footer">
             <form action="/new-contact" method="POST">
                 <div class="form-group">
-                    <input type="text" name="firstname" placeholder="FirstName" class="form-control" autofocus>
-                    <input type="text" name="lastname" placeholder="LastName" class="form-control">
-                    <input type="text" name="email" placeholder="Email" class="form-control">
-                    <input type="text" name="phone" placeholder="Phone" class="form-control">
+                    <input  type="text" name="firstname" placeholder="FirstName" class="form-control my-3" autofocus>
+                    <input  type="text" name="lastname" placeholder="LastName" class="form-control my-3">
+                    <input  type="text" name="email" placeholder="Email" class="form-control my-3">
+                    <input  type="text" name="phone" placeholder="Phone" class="form-control my-3">
                     <button class="btn btn-primary btn-block">enviar</button>
                 </div>
             </form>
