@@ -1,37 +1,74 @@
 <div class="col-md-6 offset-md-3">
-    <div class="card">
-        <div class="card-header">
-            <h1>tareas</h1>
-        </div>
-        <div class="card-body">
-            {{#if contacts}}
-               <ul class="list-group">
-                    {{#each contacts}}
-                    <li class="list-group-item">
-                        {{@key}}
-                        {{firstname}}
-                        {{lastname}}
-                        {{email}}
-                        {{phone}}
-                        <a href="/delete-contact/{{@key}}" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
-                        <a href="" class="btn btn-info"><i class="fas fa-edit"></i></a>
-                    </li>
-                    {{/each}}
-               </ul>
-            {{else}}
-            <p>no contacts yet</p>
-            {{/if}}
-        </div>
-        <div class="card-footer">
-            <form action="/new-contact" method="POST">
+    <form action="/new-book" method="POST">
                 <div class="form-group">
-                    <input  type="text" name="firstname" placeholder="FirstName" class="form-control my-3" autofocus>
-                    <input  type="text" name="lastname" placeholder="LastName" class="form-control my-3">
-                    <input  type="text" name="email" placeholder="Email" class="form-control my-3">
-                    <input  type="text" name="phone" placeholder="Phone" class="form-control my-3">
+
+                    <input  type="text" name="titulo" placeholder="Título" class="form-control my-3" autofocus>
+                    <input  type="url" name="imagen" placeholder="Imagen" class="form-control my-3">
+                    <input  type="date" name="anopublicacion" placeholder="Año Publicación" class="form-control my-3">
+
+                        {{!-- <div class="form-group">
+                            <label for="exampleFormControlSelect1">Género</label>
+                            <select class="form-control" id="exampleFormControlSelect1">
+                            <option>Drama</option>
+                            <option>Policial</option>
+                            <option>Ciencia Ficción</option>
+                            </select>
+                        </div> --}}
+
+                    <input  type="number" name="numeropaginas" placeholder="numero de páginas" class="form-control my-3">
+                    <input  type="text" name="editorial" placeholder="Editorial" class="form-control my-3">
+                    <input  type="text" name="issn" placeholder="ISSN" class="form-control my-3">
+                        
+                        {{!-- <div class="form-group">
+                            <label for="exampleFormControlSelect1">Idiomas</label>
+                            <select class="form-control" id="exampleFormControlSelect1">
+                            <option>Español</option>
+                            <option>Inglés</option>
+                            <option>Francés</option>
+                            </select>
+                        </div> --}}
+
+                    <input  type="date" name="fechapublicacion" placeholder="Fecha de Publicación" class="form-control my-3">
+                    
+                        {{!-- <div class="form-group">
+                            <label for="exampleFormControlSelect1">Estado</label>
+                            <select class="form-control" id="exampleFormControlSelect1">
+                            <option>Nuevo</option>
+                            <option>Usado</option>
+                            </select>
+                        </div> --}}
+                    <input type="number" name="precio" class="form-control my-3" placeholder="Precio">
                     <button class="btn btn-primary btn-block">enviar</button>
                 </div>
             </form>
-        </div>
-    </div>
+
+</div>
+
+
+<div class="col-md-6 offset-md-3">
+    
+    {{#if books}}
+        {{#each books}}
+            <div class="card mx-auto" style="width: 18rem;">
+                <img class="card-img-top" src="{{imagen}}" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">{{titulo}}</h5>
+                    <ul>
+                        <li>{{titulo}}</li>
+                        <li>{{anopublicacion}}</li>
+                        <li>{{numeropaginas}}</li>
+                        <li>{{editorial}}</li>
+                        <li>{{issn}}</li>
+                        <li>{{fechapublicacion}}</li>
+                        <li>{{precio}}</li>
+                    </ul>
+                    <a href="/delete-book/{{@key}}" class="btn btn-danger btn-block"><i class="fas fa-trash-alt"></i></a>
+                    <a href="" class="btn btn-info btn-block"><i class="fas fa-edit"></i></a>
+                </div>
+            </div>
+        {{/each}}
+        {{else}}
+        <p>no hay libros en stock</p>
+    {{/if}}
+    
 </div>

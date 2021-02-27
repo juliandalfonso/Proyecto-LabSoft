@@ -19,33 +19,37 @@ router.get('/', (req,res) =>
 
 router.get('/libros', (req,res) =>
 {
-    db.ref('contacts').once('value', (snapshot) => 
+    db.ref('books').once('value', (snapshot) => 
     {
         const data = snapshot.val();
-        res.render('libros', {contacts: data});
+        res.render('libros', {books: data});
     });
     
 });
 
-router.get('/delete-contact/:id', (req,res) =>
+router.get('/delete-book/:id', (req,res) =>
 {
-    db.ref('contacts/' + req.params.id).remove();
+    db.ref('books/' + req.params.id).remove();
     res.redirect('/libros');
 });
 
 
 
-router.post('/new-contact', (req,res)=>
+router.post('/new-book', (req,res)=>
 {
-    const newContact=
+    const newBook=
     {
-        firstname: req.body.firstname,
-        lastname: req.body.lastname,
-        email: req.body.email,
-        phone: req.body.phone,
+        titulo: req.body.titulo,
+        imagen: req.body.imagen,
+        anopublicacion: req.body.anopublicacion,
+        numeropaginas: req.body.numeropaginas,
+        editorial: req.body.editorial,
+        issn: req.body.issn,
+        fechapublicacion: req.body.fechapublicacion,
+        precio: req.body.precio
     };
-    db.ref('contacts').push(newContact);
-    res.redirect('libros');
+    db.ref('books').push(newBook);
+    res.redirect('/libros');
 });
 
 module.exports = router;
