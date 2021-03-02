@@ -2,42 +2,43 @@
 <div class="container bg-light p-3 col-md-6">
     <form action="/new-book" method="POST">
                 <div class="form-group">
+                    <h1 class="text-center">Agregar Libro</h1>
 
                     <input  type="text" name="titulo" placeholder="Título" class="form-control my-3" autofocus>
                     <input  type="url" name="imagen" placeholder="Imagen" class="form-control my-3">
                     <input  type="date" name="anopublicacion" placeholder="Año Publicación" class="form-control my-3">
 
-                        {{!-- <div class="form-group">
-                            <label for="exampleFormControlSelect1">Género</label>
-                            <select class="form-control" id="exampleFormControlSelect1">
-                            <option>Drama</option>
-                            <option>Policial</option>
-                            <option>Ciencia Ficción</option>
+                         <div class="form-group">
+                            <label for="genero">Género</label>
+                            <select class="form-control" id="genero" name="genero">
+                            <option value="drama">Drama</option>
+                            <option value="policial">Policial</option>
+                            <option value="ficcion">Ciencia Ficción</option>
                             </select>
-                        </div> --}}
+                        </div>
 
                     <input  type="number" name="numeropaginas" placeholder="numero de páginas" class="form-control my-3">
                     <input  type="text" name="editorial" placeholder="Editorial" class="form-control my-3">
                     <input  type="text" name="issn" placeholder="ISSN" class="form-control my-3">
                         
-                        {{!-- <div class="form-group">
-                            <label for="exampleFormControlSelect1">Idiomas</label>
-                            <select class="form-control" id="exampleFormControlSelect1">
+                         <div class="form-group">
+                            <label for="idiomas">Idiomas</label>
+                            <select class="form-control" id="idiomas" name="idioma">
                             <option>Español</option>
                             <option>Inglés</option>
                             <option>Francés</option>
                             </select>
-                        </div> --}}
+                        </div>
 
                     <input  type="date" name="fechapublicacion" placeholder="Fecha de Publicación" class="form-control my-3">
                     
-                        {{!-- <div class="form-group">
-                            <label for="exampleFormControlSelect1">Estado</label>
-                            <select class="form-control" id="exampleFormControlSelect1">
+                         <div class="form-group">
+                            <label for="uso">Estado</label>
+                            <select class="form-control" id="uso" name="uso">
                             <option>Nuevo</option>
                             <option>Usado</option>
                             </select>
-                        </div> --}}
+                        </div>
                     <input type="number" name="precio" class="form-control my-3" placeholder="Precio">
                     <button class="btn btn-primary btn-block">enviar</button>
                 </div>
@@ -57,15 +58,25 @@
                 <img class="card-img-top" style="height: 200px;" src="{{imagen}}" alt="Card image cap">
                 <div class="card-body">
                     <h5 class="card-title text-center">{{titulo}}</h5>
-                    <ul>
-                        <li>{{titulo}}</li>
-                        <li>{{anopublicacion}}</li>
-                        <li>{{numeropaginas}}</li>
-                        <li>{{editorial}}</li>
-                        <li>{{issn}}</li>
-                        <li>{{fechapublicacion}}</li>
-                        <li>{{precio}}</li>
-                    </ul>
+                    
+                    <div class="text-center mb-4">
+                        <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample{{issn}}" role="button" aria-expanded="false" aria-controls="collapseExample{{issn}}">ver detalles</a>
+                    </div>
+                    
+                    <div class="collapse" id="collapseExample{{issn}}">
+                        <ul>
+                            <li>{{titulo}}</li>
+                            <li>{{anopublicacion}}</li>
+                            <li>{{numeropaginas}}</li>
+                            <li>{{genero}}</li>
+                            <li>{{editorial}}</li>
+                            <li>{{issn}}</li>
+                            <li>{{idioma}}</li>
+                            <li>{{fechapublicacion}}</li>
+                            <li>{{uso}}</li>
+                            <li>{{precio}}</li>
+                        </ul>
+                    </div>
                     <a href="/delete-book/{{@key}}" class="btn btn-danger btn-block"><i class="fas fa-trash-alt"></i></a>
                     <a href="" class="btn btn-info btn-block"><i class="fas fa-edit"></i></a>
                 </div>

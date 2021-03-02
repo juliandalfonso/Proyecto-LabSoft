@@ -37,15 +37,19 @@ router.get('/delete-book/:id', (req,res) =>
 
 router.post('/new-book', (req,res)=>
 {
+  
     const newBook=
     {
         titulo: req.body.titulo,
         imagen: req.body.imagen,
         anopublicacion: req.body.anopublicacion,
+        genero: req.body.genero,
         numeropaginas: req.body.numeropaginas,
         editorial: req.body.editorial,
         issn: req.body.issn,
+        idioma: req.body.idioma,
         fechapublicacion: req.body.fechapublicacion,
+        uso: req.body.uso,
         precio: req.body.precio
     };
     db.ref('books').push(newBook);
