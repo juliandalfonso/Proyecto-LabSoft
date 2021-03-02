@@ -1,6 +1,6 @@
     <div class="m-4">
 <div class="container bg-light p-3 col-md-6">
-    <form action="/new-book" method="POST">
+    <form action="/new-book" method="POST" id="nuevoLibro">
                 <div class="form-group">
                     <h1 class="text-center">Agregar Libro</h1>
 
@@ -78,7 +78,7 @@
                         </ul>
                     </div>
                     <a href="/delete-book/{{@key}}" class="btn btn-danger btn-block"><i class="fas fa-trash-alt"></i></a>
-                    <a href="" class="btn btn-info btn-block"><i class="fas fa-edit"></i></a>
+                    <a href="/update-book/{{@key}}" class="btn btn-info btn-block"><i class="fas fa-edit"></i></a>
                 </div>
             </div>
             </div>

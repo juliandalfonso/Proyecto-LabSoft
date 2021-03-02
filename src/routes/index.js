@@ -34,6 +34,13 @@ router.get('/delete-book/:id', (req,res) =>
 });
 
 
+router.get('/update-book/:id', (req,res) =>
+{
+    
+    res.redirect('/libros');
+});
+
+
 
 router.post('/new-book', (req,res)=>
 {
