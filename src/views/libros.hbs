@@ -1,4 +1,5 @@
-<div class="col-md-6 offset-md-3">
+    <div class="m-4">
+<div class="container bg-light p-3 col-md-6">
     <form action="/new-book" method="POST">
                 <div class="form-group">
 
@@ -43,16 +44,19 @@
             </form>
 
 </div>
+</div>
 
 
-<div class="col-md-6 offset-md-3">
+<div class="container">
     
     {{#if books}}
+    <div class="row">
         {{#each books}}
-            <div class="card mx-auto" style="width: 18rem;">
-                <img class="card-img-top" src="{{imagen}}" alt="Card image cap">
+            <div class="col-md-3 m-4">
+                <div class="card mx-auto" style="width: 18rem;">
+                <img class="card-img-top" style="height: 200px;" src="{{imagen}}" alt="Card image cap">
                 <div class="card-body">
-                    <h5 class="card-title">{{titulo}}</h5>
+                    <h5 class="card-title text-center">{{titulo}}</h5>
                     <ul>
                         <li>{{titulo}}</li>
                         <li>{{anopublicacion}}</li>
@@ -66,7 +70,10 @@
                     <a href="" class="btn btn-info btn-block"><i class="fas fa-edit"></i></a>
                 </div>
             </div>
+            </div>
         {{/each}}
+            
+    </div>
         {{else}}
         <p>no hay libros en stock</p>
     {{/if}}
