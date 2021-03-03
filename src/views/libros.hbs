@@ -6,6 +6,7 @@
 
                     <input  type="text" name="titulo" placeholder="Título" class="form-control my-3" autofocus>
                     <input  type="url" name="imagen" placeholder="Imagen" class="form-control my-3">
+                    <label for="anopublicacion">Año de Publicación</label>
                     <input  type="date" name="anopublicacion" placeholder="Año Publicación" class="form-control my-3">
 
                          <div class="form-group">
@@ -29,7 +30,7 @@
                             <option>Francés</option>
                             </select>
                         </div>
-
+                    <label for="fechapublicacion">Fecha de Publicación</label>
                     <input  type="date" name="fechapublicacion" placeholder="Fecha de Publicación" class="form-control my-3">
                     
                          <div class="form-group">
@@ -86,7 +87,7 @@
             
     </div>
         {{else}}
-        <p>no hay libros en stock</p>
+        <h1 class="text-center display-4 m-4 text-secondary">no hay libros en stock</h1>
     {{/if}}
     
 </div>
