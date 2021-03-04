@@ -17,12 +17,12 @@ router.get('/', (req,res) =>
     res.render('index');
 });
 
-router.get('/libros', (req,res) =>
+router.get('/libros-admin', (req,res) =>
 {
     db.ref('books').once('value', (snapshot) => 
     {
         const data = snapshot.val();
-        res.render('libros', {books: data});
+        res.render('libros-admin', {books: data});
     });
     
 });
@@ -30,14 +30,14 @@ router.get('/libros', (req,res) =>
 router.get('/delete-book/:id', (req,res) =>
 {
     db.ref('books/' + req.params.id).remove();
-    res.redirect('/libros');
+    res.redirect('/libros-admin');
 });
 
 
 router.get('/update-book/:id', (req,res) =>
 {
     
-    res.redirect('/libros');
+    res.redirect('/libros-admin');
 });
 
 
@@ -60,7 +60,16 @@ router.post('/new-book', (req,res)=>
         precio: req.body.precio
     };
     db.ref('books').push(newBook);
-    res.redirect('/libros');
+    res.redirect('/libros-admin');
 });
+
+
+
+router.get('/noticias', (req,res) =>
+{
+    res.render('noticias');
+    
+});
+
 
 module.exports = router;

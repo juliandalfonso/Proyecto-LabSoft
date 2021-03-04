@@ -17,7 +17,7 @@ body {
 }
 
 
-.bg-no-overlay {
+.bg-no-overlay-index {
     background: url("img/Purple-in-Jacket7.png");
     background-repeat: no-repeat;
     background-size: cover;
@@ -26,8 +26,45 @@ body {
     height: 450px;
     padding-top: 50px;
 }
-.bg-no-overlay-2 {
+.bg-no-overlay-libros {
     background: url("img/Yellow-in-Jacket11.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    color: #fff;
+    height: 450px;
+    padding-top: 50px;
+}
+.bg-no-overlay-mensajes {
+    background: url("img/bubble_2.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    color: #fff;
+    height: 450px;
+    padding-top: 50px;
+}
+.bg-no-overlay-noticias {
+    background: url("img/chart_2.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    color: #fff;
+    height: 450px;
+    padding-top: 50px;
+}
+
+.bg-overlay-mensajes {
+    background: linear-gradient(rgba(0,0,0,.7), rgba(0,0,0,.7)), url("img/bubble_2.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    color: #fff;
+    height: 450px;
+    padding-top: 50px;
+}
+.bg-overlay-noticias {
+    background: linear-gradient(rgba(0,0,0,.7), rgba(0,0,0,.7)), url("img/chart_2.png");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
