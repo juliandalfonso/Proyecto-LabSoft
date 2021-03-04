@@ -72,4 +72,11 @@ router.get('/noticias', (req,res) =>
 });
 
 
+router.get('/buscar', (req,res) =>
+{
+    res.render('buscar');
+    
+});
+
+
 module.exports = router;
