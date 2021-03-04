@@ -74,7 +74,11 @@ router.get('/noticias', (req,res) =>
 
 router.get('/buscar', (req,res) =>
 {
-    res.render('buscar');
+    db.ref('books').once('value', (snapshot) => 
+    {
+        const data = snapshot.val();
+        res.render('buscar', {books: data});
+    });
     
 });
 

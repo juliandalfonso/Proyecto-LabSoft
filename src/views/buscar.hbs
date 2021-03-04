@@ -17,3 +17,46 @@
     </div>
 </div>
 </div>
+
+<div class="container">
+    
+    {{#if books}}
+    <div class="row">
+        {{#each books}}
+            <div class="col-md-3 m-4">
+                <div class="card mx-auto" style="width: 18rem;">
+                <img class="card-img-top" style="height: 400px;" src="{{imagen}}" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title text-center">{{titulo}}</h5>
+                    
+                    <div class="text-center mb-4">
+                        <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample{{issn}}" role="button" aria-expanded="false" aria-controls="collapseExample{{issn}}">ver detalles</a>
+                    </div>
+                    
+                    <div class="collapse" id="collapseExample{{issn}}">
+                        <ul>
+                            <li>{{titulo}}</li>
+                            <li>{{anopublicacion}}</li>
+                            <li>{{numeropaginas}}</li>
+                            <li>{{genero}}</li>
+                            <li>{{editorial}}</li>
+                            <li>{{issn}}</li>
+                            <li>{{idioma}}</li>
+                            <li>{{fechapublicacion}}</li>
+                            <li>{{uso}}</li>
+                            <li>{{precio}}</li>
+                        </ul>
+                    </div>
+                    <a href="/delete-book/{{@key}}" class="btn btn-danger btn-block"><i class="fas fa-trash-alt"></i></a>
+                    <a href="/update-book/{{@key}}" class="btn btn-info btn-block"><i class="fas fa-edit"></i></a>
+                </div>
+            </div>
+            </div>
+        {{/each}}
+            
+    </div>
+        {{else}}
+        <h1 class="text-center display-4 m-4 text-secondary">no hay libros en stock</h1>
+    {{/if}}
+    
+</div>

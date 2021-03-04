@@ -62,8 +62,9 @@ body {
     height: 450px;
 }
 
-.bg-overlay-mensajes {
-    background: linear-gradient(rgba(0,0,0,.7), rgba(0,0,0,.7)), url("img/bubble_2.png");
+
+.bg-overlay-noticias {
+    background: linear-gradient(rgba(0,0,0,.7), rgba(0,0,0,.7)), url("img/chart_2.png");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
@@ -71,8 +72,9 @@ body {
     height: 450px;
     padding-top: 50px;
 }
-.bg-overlay-noticias {
-    background: linear-gradient(rgba(0,0,0,.7), rgba(0,0,0,.7)), url("img/chart_2.png");
+
+.bg-overlay-mensajes {
+    background: linear-gradient(rgba(0,0,0,.7), rgba(0,0,0,.7)), url("img/bubble_2.png");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
