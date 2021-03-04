@@ -16,7 +16,7 @@ const app = express();
 // settings
 
 // establecemos el numero del puerto 
-app.set('port', process.env.PORT || 4000);
+app.set('port', process.env.PORT || 5500);
 
 // le decimos a Node donde esta la carpeta views
 app.set('views', path.join(__dirname, 'views'));

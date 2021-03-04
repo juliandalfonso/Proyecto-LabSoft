@@ -15,3 +15,23 @@ body {
 		background-position: 0% 50%;
 	}
 }
+
+
+.bg-no-overlay {
+    background: url("img/Purple-in-Jacket7.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    color: #fff;
+    height: 450px;
+    padding-top: 50px;
+}
+.bg-no-overlay-2 {
+    background: url("img/Yellow-in-Jacket11.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    color: #fff;
+    height: 450px;
+    padding-top: 50px;
+}

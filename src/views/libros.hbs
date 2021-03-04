@@ -1,10 +1,32 @@
-    <div class="m-4">
-<div class="container bg-light p-3 col-md-6">
-    <form action="/new-book" method="POST" id="nuevoLibro">
-                <div class="form-group">
-                    <h1 class="text-center">Agregar Libro</h1>
 
-                    <input  type="text" name="titulo" placeholder="Título" class="form-control my-3" autofocus>
+<div class="container vh-100 bg-no-overlay-2" data-aos="fade-up">
+    <div class="row h-100">
+            <div class="col-sm-12 my-auto">
+                <div class=" text-center pt-4" >
+                    <button type="button" class="btn btn-danger btn-lg p-4" data-toggle="modal" data-target="#modalAgregaLibro">Agregar Libro</button>
+                </div>
+            </div>
+        
+    </div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="modalAgregaLibro" tabindex="-1" aria-labelledby="modalAgregaLibro" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Agregar Libro</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form action="/new-book" method="POST" id="nuevoLibro">
+                <div class="form-group">
+                    
+
+                    <input  type="text" name="titulo" placeholder="Título" class="form-control my-3">
                     <input  type="url" name="imagen" placeholder="Imagen" class="form-control my-3">
                     <label for="anopublicacion">Año de Publicación</label>
                     <input  type="date" name="anopublicacion" placeholder="Año Publicación" class="form-control my-3">
@@ -41,12 +63,30 @@
                             </select>
                         </div>
                     <input type="number" name="precio" class="form-control my-3" placeholder="Precio">
-                    <button class="btn btn-primary btn-block">enviar</button>
                 </div>
-            </form>
+      </div>
+        <div class="modal-footer">
+          <button class="btn btn-primary btn-block" type="submit">enviar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
 
-</div>
-</div>
+
+
+
+
+
+
+
+
+    
+    
+
+    
+
+
 
 
 <div class="container">
@@ -56,12 +96,12 @@
         {{#each books}}
             <div class="col-md-3 m-4">
                 <div class="card mx-auto" style="width: 18rem;">
-                <img class="card-img-top" style="height: 200px;" src="{{imagen}}" alt="Card image cap">
+                <img class="card-img-top" style="height: 400px;" src="{{imagen}}" alt="Card image cap">
                 <div class="card-body">
                     <h5 class="card-title text-center">{{titulo}}</h5>
                     
                     <div class="text-center mb-4">
-                        <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample{{issn}}" role="button" aria-expanded="false" aria-controls="collapseExample{{issn}}">ver detalles</a>
+                        <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample{{issn}}" role="button" aria-expanded="false" aria-controls="collapseExample{{issn}}">ver detalles</a>
                     </div>
                     
                     <div class="collapse" id="collapseExample{{issn}}">
