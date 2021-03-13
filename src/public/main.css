@@ -26,15 +26,7 @@ body {
     height: 450px;
     padding-top: 50px;
 }
-.bg-overlay-index {
-    background: linear-gradient(rgba(0,0,0,.7), rgba(0,0,0,.7)), url("img/Purple-in-Jacket7.png");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center center;
-    color: #fff;
-    height: 450px;
-    padding-top: 50px;
-}
+
 .bg-no-overlay-libros {
     background: url("img/Yellow-in-Jacket11.png");
     background-repeat: no-repeat;
@@ -44,15 +36,7 @@ body {
     height: 450px;
     padding-top: 50px;
 }
-.bg-no-overlay-buscar {
-    background: url("img/Steve-Jobs.png");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center center;
-    color: #fff;
-    height: 450px;
-    
-}
+
 .bg-overlay-buscar {
     background: linear-gradient(rgba(0,0,0,.7), rgba(0,0,0,.7)), url("img/Steve-Jobs.png");
     background-repeat: no-repeat;
@@ -64,21 +48,21 @@ body {
 
 
 .bg-overlay-noticias {
-    background: linear-gradient(rgba(0,0,0,.7), rgba(0,0,0,.7)), url("img/chart_2.png");
+    background: linear-gradient(rgba(0,0,0,.7), rgba(0,0,0,.7)), url("img/Warning.png");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
     color: #fff;
     height: 450px;
-    padding-top: 50px;
+    
 }
 
 .bg-overlay-mensajes {
-    background: linear-gradient(rgba(0,0,0,.7), rgba(0,0,0,.7)), url("img/bubble_2.png");
+    background: linear-gradient(rgba(0,0,0,.7), rgba(0,0,0,.7)), url("img/Message.png");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
     color: #fff;
     height: 450px;
-    padding-top: 50px;
+    
 }
