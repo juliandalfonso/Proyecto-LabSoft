@@ -73,6 +73,12 @@ router.get('/noticias', (req,res) =>
     
 });
 
+router.get('/chat', (req,res) =>
+{
+    res.render('chat');
+    
+});
+
 
 router.get('/buscar', (req,res) =>
 {
