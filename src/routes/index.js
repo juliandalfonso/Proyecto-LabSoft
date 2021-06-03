@@ -17,12 +17,91 @@ router.get('/', (req,res) =>
     res.render('index');
 });
 
-router.get('/login', (req,res) =>
+
+router.get('/login-root', (req,res) =>
 {
-    res.render('login');
+    res.render('login-root');
+});
+
+router.post('/login-root', (req,res) =>
+{
+    db.ref('root').once("value")
+      .then(function(snapshot) {
+         var name = snapshot.val(); // {first:"Ada",last:"Lovelace"}
+        console.log(name);
+        for (var i in name) {
+            if(name[i].rootemail == req.body.rootemail )
+            {
+                if(name[i].password == req.body.password)
+                {
+                    res.render('/root');
+                }
+            }
+        }
+      });
 });
 
 
+
+router.post('/root', (req,res)=>
+{
+  
+    const newadmin=
+    {
+        adminemail: req.body.adminemail,
+        password: req.body.password
+    };
+    db.ref('administradores').push(newadmin);
+    res.redirect('/root');
+});
+
+router.get('/nuevo-root', (req,res) =>
+{
+    res.render('root');
+});
+
+router.post('/nuevo-root', (req,res)=>
+{
+  
+    const newroot=
+    {
+        rootemail: req.body.adminemail,
+        password: req.body.password
+    };
+    db.ref('root').push(newroot);
+    res.redirect('/root');
+});
+
+
+router.get('/login-admin', (req,res) =>
+{
+    res.render('login-admin');
+});
+
+router.post('/login-admin', (req,res)=>
+{
+
+      db.ref('administradores').once("value")
+      .then(function(snapshot) {
+         var name = snapshot.val(); // {first:"Ada",last:"Lovelace"}
+        console.log(name);
+        for (var i in name) {
+            if(name[i].adminemail == req.body.adminemail )
+            {
+                if(name[i].password == req.body.password)
+                {
+                    db.ref('books').once('value', (snapshot) => 
+                    {
+                        const data = snapshot.val();
+                        res.render('libros-admin', {books: data});
+                    });
+                }
+            }
+        }
+      });
+      
+
+});
 
 router.get('/libros-admin', (req,res) =>
 {

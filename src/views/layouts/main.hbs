@@ -25,28 +25,84 @@
       <li class="nav-item">
         <a class="nav-link" href="/">Inicio</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/libros-admin">Libros</a>
-      </li>
-      <li class="nav-item">
+      <li class="nav-item logged-in" style="display: none;">
         <a class="nav-link" href="/buscar">buscar</a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item logged-in" style="display: none;">
         <a class="nav-link" href="/noticias">Noticias</a>
       </li>
-      <li class="nav-item dropdown">
+      <li class="nav-item logged-out" style="display: none;">
+        <a class="nav-link" href="#" data-toggle="modal" data-target="#signupModal">Registro</a>
+      </li>
+      <li class="nav-item dropdown logged-out" style="display: none;">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Login
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="/login">Root</a>
-          <a class="dropdown-item" href="/login">Admin</a>
-          <a class="dropdown-item" href="/login">Cliente</a>
+          <a class="dropdown-item" href="/login-root">Root</a>
+          <a class="dropdown-item" href="/login-admin">Admin</a>
+          <a class="dropdown-item" href="#" data-toggle="modal" data-target="#signinModal">Cliente</a>
         </div>
+      </li>
+      <li class="nav-item logged-in" style="display: none;">
+        <a class="nav-link" href="#" data-toggle="modal" id="logout" data-target="">Salir</a>
       </li>
     </ul>
   </div>
 </nav>
+
+
+<!-- Modal -->
+<div class="modal fade" id="signinModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Loggearse</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form action="" id="login-form">
+            <div class="form-group">
+                <input type="email" id="login-email" class="form-control" placeholder="email" required>
+            </div>
+            <div class="form-group">
+                <input type="password" id="login-password" class="form-control" placeholder="contraseña" required>
+            </div>
+        <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+        <button type="button" class="btn btn-secondary btn-block" id="googleLogin"><i class="fab fa-google p-2"></i></button>
+        <button type="button" class="btn btn-info btn-block" id="facebookLogin"><i class="fab fa-facebook-f p-2"></i></button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="signupModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Registrarse</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form action="" method="" id="signup-form">
+            <div class="form-group">
+                <input type="email" id="signup-email" class="form-control" placeholder="email" name="adminemail" required>
+            </div>
+            <div class="form-group">
+                <input type="password" id="signup-password" class="form-control" placeholder="contraseña" name="adminpassword" required>
+            </div>
+        <button type="submit" class="btn btn-success">Sign Up</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
 
             {{{body}}}
 
@@ -130,3 +186,33 @@
 
 </body>
 </html>
+
+
+
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/8.6.3/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+     <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-auth.js"></script>
+     <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-firestore.js"></script>
+
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyAPW1Jf54eIIUULTqhYvBsy5PSgQ5ZG9m4",
+    authDomain: "proyecto-labsoft.firebaseapp.com",
+    databaseURL: "https://proyecto-labsoft-default-rtdb.firebaseio.com",
+    projectId: "proyecto-labsoft",
+    storageBucket: "proyecto-labsoft.appspot.com",
+    messagingSenderId: "1025290420685",
+    appId: "1:1025290420685:web:5730b169fafd79f9290484"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  const auth = firebase.auth();
+
+</script>
+
+<script src="Auth.js"></script>

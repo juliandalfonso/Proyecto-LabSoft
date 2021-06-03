@@ -30,7 +30,7 @@
                     <h5 class="card-title text-center">{{titulo}}</h5>
                     
                     <div class="text-center mb-4">
-                        <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample{{issn}}" role="button" aria-expanded="false" aria-controls="collapseExample{{issn}}">ver detalles</a>
+                        <a class="btn btn-danger" data-toggle="collapse" href="#collapseExample{{issn}}" role="button" aria-expanded="false" aria-controls="collapseExample{{issn}}">ver detalles</a>
                     </div>
                     
                     <div class="collapse" id="collapseExample{{issn}}">
@@ -47,8 +47,8 @@
                             <li>{{precio}}</li>
                         </ul>
                     </div>
-                    <a href="/delete-book/{{@key}}" class="btn btn-danger btn-block"><i class="fas fa-trash-alt"></i></a>
-                    <a href="/update-book/{{@key}}" class="btn btn-info btn-block"><i class="fas fa-edit"></i></a>
+                    <a href="/buy-book/{{@key}}" class="btn btn-primary btn-block"><i class="fas fa-shopping-bag"></i></a>
+                   
                 </div>
             </div>
             </div>
