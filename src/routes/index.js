@@ -18,6 +18,8 @@ router.get('/', (req,res) =>
 });
 
 
+
+
 router.get('/login-root', (req,res) =>
 {
     res.render('login-root');
@@ -34,7 +36,7 @@ router.post('/login-root', (req,res) =>
             {
                 if(name[i].password == req.body.password)
                 {
-                    res.render('/root');
+                    res.redirect('root');
                 }
             }
         }
@@ -42,6 +44,14 @@ router.post('/login-root', (req,res) =>
 });
 
 
+router.get('/root', (req,res)=>
+{
+    db.ref('administradores').once('value', (snapshot) => 
+    {
+        const data = snapshot.val();
+        res.render('root', {administradores: data});
+    });
+});
 
 router.post('/root', (req,res)=>
 {
@@ -52,8 +62,16 @@ router.post('/root', (req,res)=>
         password: req.body.password
     };
     db.ref('administradores').push(newadmin);
-    res.redirect('/root');
+    res.redirect('root');
 });
+
+
+
+
+
+
+
+
 
 router.get('/nuevo-root', (req,res) =>
 {
@@ -69,9 +87,15 @@ router.post('/nuevo-root', (req,res)=>
         password: req.body.password
     };
     db.ref('root').push(newroot);
-    res.redirect('/root');
+    res.redirect('root');
 });
 
+
+
+
+
+
+//ADMIN MIDDLEWARES
 
 router.get('/login-admin', (req,res) =>
 {
@@ -151,12 +175,19 @@ router.post('/new-book', (req,res)=>
 
 
 
+
+//NOTICIAS MIDDLEWARE
 router.get('/noticias', (req,res) =>
 {
     res.render('noticias');
     
 });
 
+
+
+
+
+//CHAT MIDDLEWARE
 router.get('/chat', (req,res) =>
 {
     res.render('chat');

@@ -113,16 +113,23 @@ auth.onAuthStateChanged(user =>
 
     loggedOutLinks = document.querySelectorAll('.logged-out');
     loggedInLinks = document.querySelectorAll('.logged-in');
+    userTitle = document.getElementById('userTitleLoggedIn');
+    
     
     const loginCheck = user =>
     {
         if(user)
-        {
+        {   
+
+            
+            userTitle.innerText=user.email;
             loggedInLinks.forEach(link => link.style.display = 'block');
             loggedOutLinks.forEach(link => link.style.display = 'none');
         }
         else
         {
+
+            userTitle.innerText="LIB-SYS";
             loggedInLinks.forEach(link => link.style.display = 'none');
             loggedOutLinks.forEach(link => link.style.display = 'block');
     
