@@ -3,6 +3,9 @@ const {Router} = require('express');
 const router = Router();
 const admin = require('firebase-admin');
 
+const stripe = require('stripe')('sk_test_51HtJv1GUk0MOUD0Dpr4MvaGOOotkX6uDggSc4B1Hs6of52pCySQ3inBXNH5Zfj3ghLqsLLqf6POIsWRnDTFpeGhy00d2zC1w7u');
+const fs  = require('fs');
+
 var serviceAccount = require("../../proyecto-labsoft-firebase-adminsdk-5ufm3-65f0bdfca7.json");
 
 admin.initializeApp({
@@ -204,6 +207,38 @@ router.get('/buscar', (req,res) =>
     });
     
 });
+
+
+
+router.post('/checkout', async(req,res)=>
+{
+    data="El correo "+req.body.stripeEmail+", Ha realizado un pago exitoso..."+"att: Tursitapp";
+    fs.writeFileSync('src/public/recibo.txt', data, (error) => { 
+
+        // In case of a error throw err exception. 
+        if (error) throw err; 
+    });
+    //creo un comprador con su email y token
+    const customer = await stripe.customers.create(
+        {
+            email: req.body.stripeEmail,
+            source: req.body.stripeToken
+        }
+    );
+
+    //creo una compra y la cargo a stripe
+    const charge = await stripe.charges.create({
+        amount:'30000',
+        currency: 'usd',
+        customer: customer.id,
+        description: 'Paquete turístico'
+    });
+    console.log(charge.id);
+    //final show
+
+    res.render('download');
+});
+
 
 
 module.exports = router;

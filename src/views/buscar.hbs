@@ -47,7 +47,28 @@
                             <li>{{precio}}</li>
                         </ul>
                     </div>
-                    <a href="/buy-book/{{@key}}" class="btn btn-primary btn-block"><i class="fas fa-shopping-bag"></i></a>
+                    <form action="/checkout" method="POST">
+                                    <script 
+                                      src="https://checkout.stripe.com/checkout.js"
+                                      class="stripe-button"
+                                      data-key="pk_test_51HtJv1GUk0MOUD0DgxqMod01orwQI8oNzL6lf4sAePJZvB1k5jkhDrfJ5DLs7nonPx8VNjPIRb16JIeD0efgwA6e00umyRM0aQ"
+                                      data-amount="{{precio}}"
+                                      data-currency="usd"
+                                      data-name="{{titulo}}"
+                                      data-description="{{editorial}}"
+                                      data-image="{{imagen}}"
+                                      data-Locale="auto">
+                                    </script>
+                                    <script>
+                                        for (const element of document.getElementsByClassName("stripe-button-el")){
+                                                element.style.display="none";
+                                                }
+                                    </script>
+                                    <button type="submit" class="btn btn-block btn-success">
+                                    <i class="fas fa-shopping-cart"></i>
+                                  </button>
+                                  </form>
+                    
                    
                 </div>
             </div>

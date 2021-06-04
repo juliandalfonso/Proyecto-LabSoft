@@ -1,0 +1,67 @@
+{{!-- NAVBAR --}}
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container">
+      <a class="navbar-brand" href="#"><i class="fas fa-compass h4"> LIB-SYS</i></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="/">Inicio</a>
+      </li>
+    </ul>
+  </div>
+  </div>
+</nav>
+
+<img src="/wave.svg" alt="">
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 mx-auto">
+            <div class="card mt-4">
+    <div class="card-body text-center">
+        <h1>Ver Recibo</h1>
+        <a href="/recibo.txt" download="" class="btn btn-dark" id="descarga">Descargar</a>
+    </div>
+</div>
+        </div>
+    </div>
+</div>
+
+<script src="https://smtpjs.com/v3/smtp.js"></script>
+
+<script>
+    Email.send({
+    Host : "smtp.gmail.com",
+    Username : "julianalfonso082@gmail.com",
+    Password : "opqznywtxovwnbpz",
+    To : 'emasrylordl@gmailup.com',
+    From : "julianalfonso082@gmail.com",
+    Subject : "Compra Realizada",
+    Body : "La compra del correo julian@gmail.com ha sido realizada exitosamente"
+}).then(
+  message => alert(message)
+);
+//https://generator.email/emasrylordl@gmailup.com
+
+const botonDescarga = document.getElementById('descarga');
+
+botonDescarga.addEventListener('click',loadTxt);
+
+function loadTxt()
+{
+  fetch('recibo.txt')
+  .then(function(response)
+  {
+    return response.text();
+  })
+  .then(function(data)
+  {
+    console.log(data);
+  })
+}
+
+
+</script>
