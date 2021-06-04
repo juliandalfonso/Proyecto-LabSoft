@@ -3,6 +3,9 @@ const {Router} = require('express');
 const router = Router();
 const admin = require('firebase-admin');
 
+
+
+
 const stripe = require('stripe')('sk_test_51HtJv1GUk0MOUD0Dpr4MvaGOOotkX6uDggSc4B1Hs6of52pCySQ3inBXNH5Zfj3ghLqsLLqf6POIsWRnDTFpeGhy00d2zC1w7u');
 const fs  = require('fs');
 
@@ -197,6 +200,26 @@ router.get('/chat', (req,res) =>
     
 });
 
+router.post('/chat', (req,res)=>
+{
+    const usuariodatos=
+    {
+        usuario: req.body.usuario,
+        interes: req.body.interes,
+    };
+    
+    res.render('foro', {datos: usuariodatos});
+});
+
+
+router.get('/foro', (req,res) =>
+{
+    res.render('foro');
+    
+});
+
+
+
 
 router.get('/buscar', (req,res) =>
 {
@@ -238,6 +261,11 @@ router.post('/checkout', async(req,res)=>
 
     res.render('download');
 });
+
+
+
+
+
 
 
 

@@ -1,6 +1,20 @@
 // Solicitamos el modulo express creado en app.js
 const app = require('./app');
 
-// Establecemos el puerto de escucha del servidor
-app.listen(app.get('port'));
-console.log('server on port ', app.get('port'));
+
+
+const http = require('http');
+const server = http.createServer(app);
+
+const { Server } = require("socket.io");
+const io = new Server(server);
+
+io.on('connection', (socket) => {
+    socket.on('chat message', (msg) => {
+      io.emit('chat message', msg);
+    });
+  });
+
+server.listen(app.get('port'), () => {
+    console.log('listening on *:3000');
+  });

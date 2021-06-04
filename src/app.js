@@ -13,6 +13,8 @@ const path = require('path');
 // ejecutamos express y lo guardamos en la variable app para que sea usado en index.js
 const app = express();
 
+//Sockets
+
 // settings
 
 // establecemos el numero del puerto 
@@ -40,5 +42,10 @@ app.use(express.json());
 app.use(require('./routes/index'));
 // static files
 app.use(express.static(path.join(__dirname, 'public')));
+
+
+
+
+
 
 module.exports = app;
