@@ -235,7 +235,12 @@ router.get('/buscar', (req,res) =>
 
 router.post('/checkout', async(req,res)=>
 {
-    
+    data="El correo "+req.body.stripeEmail+", Ha realizado un pago exitoso..."+"att: LIB-SYS";
+    fs.writeFileSync('src/public/recibo.txt', data, (error) => { 
+
+        // In case of a error throw err exception. 
+        if (error) throw err; 
+    });
     //creo un comprador con su email y token
     const customer = await stripe.customers.create(
         {
