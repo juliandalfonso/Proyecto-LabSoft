@@ -259,7 +259,7 @@ router.post('/checkout', async(req,res)=>
     console.log(charge.id);
     //final show
 
-    res.render('download');
+    res.render('Download');
 });
 
 
