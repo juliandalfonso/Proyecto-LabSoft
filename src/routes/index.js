@@ -71,6 +71,13 @@ router.post('/root', (req,res)=>
     res.redirect('root');
 });
 
+router.get('/delete-admin/:id', (req,res) =>
+{
+    db.ref('administradores/' + req.params.id).remove();
+    res.redirect('/root');
+});
+
+
 
 
 
@@ -218,7 +225,15 @@ router.get('/foro', (req,res) =>
     
 });
 
-
+router.get('/ultimos', (req,res) =>
+{
+    db.ref('books').once('value', (snapshot) => 
+    {
+        const data = snapshot.val();
+        res.render('ultimos', {books: data});
+    });
+    
+});
 
 
 router.get('/buscar', (req,res) =>
