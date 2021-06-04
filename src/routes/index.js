@@ -212,7 +212,7 @@ router.get('/buscar', (req,res) =>
 
 router.post('/checkout', async(req,res)=>
 {
-    data="El correo "+req.body.stripeEmail+", Ha realizado un pago exitoso..."+"att: Tursitapp";
+    data="El correo "+req.body.stripeEmail+", Ha realizado un pago exitoso..."+"att: LIB-SYS";
     fs.writeFileSync('src/public/recibo.txt', data, (error) => { 
 
         // In case of a error throw err exception. 
@@ -228,10 +228,10 @@ router.post('/checkout', async(req,res)=>
 
     //creo una compra y la cargo a stripe
     const charge = await stripe.charges.create({
-        amount:'30000',
+        amount:'3000',
         currency: 'usd',
         customer: customer.id,
-        description: 'Paquete turístico'
+        description: 'Compra Libro'
     });
     console.log(charge.id);
     //final show
